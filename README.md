@@ -1,3 +1,2 @@
 # tourney-kiosk
----------------
-tbd
+requires [braacket.py](https://github.com/Savestate2A03/braacket.py)
