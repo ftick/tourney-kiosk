@@ -24,7 +24,7 @@ class TourneyKiosk():
 
     # ----- server stuff
 
-    class HelloWorld(object):
+    class Root(object):
         @cherrypy.expose
         def index(self):
             return """<html>
@@ -41,4 +41,4 @@ class TourneyKiosk():
             'tools.sessions.on': True
         }
     }
-    cherrypy.quickstart(HelloWorld(), '/', conf)
+    cherrypy.quickstart(Root(), '/', conf)
