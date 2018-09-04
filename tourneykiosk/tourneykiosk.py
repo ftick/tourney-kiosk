@@ -1,6 +1,8 @@
 import cherrypy
 import random
 import string
+import os 
+from .routes import Routes
 from enum import Enum
 
 # ----- enums 
@@ -24,7 +26,22 @@ class TourneyKiosk():
         # ----- start server
         conf = {
             '/': {
-                'tools.sessions.on': True
+                'tools.sessions.on': True,
+                'tools.staticdir.root': os.path.abspath(os.getcwd())
+            },
+            '/ajax': {
+                'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
+                'tools.response_headers.on': True,
+                'tools.response_headers.headers': [('Content-Type', 'text/plain')],
+            },
+            '/ajax/namesearch': {
+                'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
+                'tools.response_headers.on': True,
+                'tools.response_headers.headers': [('Content-Type', 'text/plain')],
+            },
+            '/static': {
+                'tools.staticdir.on': True,
+                'tools.staticdir.dir': 'public'
             },
             'kiosk': {
                 'tourney_type': tourney_type,
@@ -33,26 +50,7 @@ class TourneyKiosk():
                 'playerbank_vars': playerbank_vars
             }
         }
-        cherrypy.quickstart(self._Root(), '/', conf)
-
-    # ----- server stuff
-
-    class _Root(object):
-        @cherrypy.expose
-        def index(self):
-            return """<html>
-              <head></head>
-              <body>
-                <p>Nothing Yet...</p>
-              </body>
-            </html>"""
-
-        @cherrypy.expose
-        def signup(self):
-            return """<html>
-                <head></head>
-                <body>
-                <p>""" + str(cherrypy.request.app.config['kiosk'])+ """</p>
-                </body>
-            </html>"""
-
+        webapp = Routes._Root()
+        webapp.ajax = Routes._Ajax()
+        webapp.ajax.namesearch = Routes._AjaxNameSearch()
+        cherrypy.quickstart(webapp, '/', conf)
