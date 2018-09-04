@@ -21,10 +21,23 @@ class TourneyKiosk():
         self._tourney_vars = tourney_vars
         self._playerbank_type = playerbank_type
         self._playerbank_vars = playerbank_vars
+        # ----- start server
+        conf = {
+            '/': {
+                'tools.sessions.on': True
+            },
+            'kiosk': {
+                'tourney_type': tourney_type,
+                'tourney_vars': tourney_vars,
+                'playerbank_type': playerbank_type,
+                'playerbank_vars': playerbank_vars
+            }
+        }
+        cherrypy.quickstart(self._Root(), '/', conf)
 
     # ----- server stuff
 
-    class Root(object):
+    class _Root(object):
         @cherrypy.expose
         def index(self):
             return """<html>
@@ -34,11 +47,12 @@ class TourneyKiosk():
               </body>
             </html>"""
 
-    # ----- start server
+        @cherrypy.expose
+        def signup(self):
+            return """<html>
+                <head></head>
+                <body>
+                <p>""" + str(cherrypy.request.app.config['kiosk'])+ """</p>
+                </body>
+            </html>"""
 
-    conf = {
-        '/': {
-            'tools.sessions.on': True
-        }
-    }
-    cherrypy.quickstart(Root(), '/', conf)
