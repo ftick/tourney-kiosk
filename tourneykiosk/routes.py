@@ -1,4 +1,5 @@
 import cherrypy
+import json
 
 class Routes(object):
 
@@ -32,7 +33,8 @@ class Routes(object):
             return Routes.NULL_STRING
 
         def POST(self, name=""):
-            return str(cherrypy.engine.publish("braacket-search", name).pop())
+            result = cherrypy.engine.publish("braacket-search", name).pop()
+            return json.dumps(result)
 
         def PUT(self):
             return Routes.NULL_STRING
