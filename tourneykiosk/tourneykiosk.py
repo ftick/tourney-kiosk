@@ -2,7 +2,8 @@ import cherrypy
 import random
 import string
 import os 
-from .routes import Routes
+from .routes import *
+from .plugins import *
 from enum import Enum
 
 # ----- enums 
@@ -23,6 +24,12 @@ class TourneyKiosk():
         self._tourney_vars = tourney_vars
         self._playerbank_type = playerbank_type
         self._playerbank_vars = playerbank_vars
+        # ----- plugins 
+        BraacketPlugin(cherrypy.engine, playerbank_vars['LEAGUE']).subscribe()
+        # ----- routes
+        webapp = Routes._Root()
+        webapp.ajax = Routes._Ajax()
+        webapp.ajax.namesearch = Routes._AjaxNameSearch()
         # ----- start server
         conf = {
             '/': {
@@ -50,7 +57,5 @@ class TourneyKiosk():
                 'playerbank_vars': playerbank_vars
             }
         }
-        webapp = Routes._Root()
-        webapp.ajax = Routes._Ajax()
-        webapp.ajax.namesearch = Routes._AjaxNameSearch()
+
         cherrypy.quickstart(webapp, '/', conf)
