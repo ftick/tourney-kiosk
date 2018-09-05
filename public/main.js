@@ -16,7 +16,7 @@ $( "#name_search_input" ).keyup(function() {
 	 	url: "/ajax/namesearch",
 	  	data: { name: $(this).val() }
 	})
-	  	.done(function( msg ) {
+	  	.done(function(msg) {
 	    	create_name_list(JSON.parse(msg));
 	  	});
 });
