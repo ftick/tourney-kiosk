@@ -7,20 +7,7 @@ class Routes(object):
     class _Root(object):
         @cherrypy.expose
         def index(self):
-            return """<html>
-                <head>
-                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js?ver=3.3.1"></script>
-                    <script src="static/main.js"></script>
-                </head>
-                    <body>
-                        <form action="/ajax/namesearch" method="post">
-                            name: <input id="name_search_input" type="text" name="name">
-                        </form>
-                        <div id="log_area" style="width:260px;background-color:#ccc;font-family:monospace">
-                            test
-                        </div>
-                    </body>
-                </html>"""
+            pass
 
     @cherrypy.expose
     class _Ajax(object):

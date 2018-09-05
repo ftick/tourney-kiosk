@@ -34,6 +34,9 @@ class TourneyKiosk():
         conf = {
             '/': {
                 'tools.sessions.on': True,
+                'tools.staticdir.on': True,
+                'tools.staticdir.dir': 'web',
+                'tools.staticdir.index': 'index.html',
                 'tools.staticdir.root': os.path.abspath(os.getcwd())
             },
             '/ajax': {
