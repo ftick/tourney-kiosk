@@ -1,6 +1,9 @@
 import cherrypy
 
 class Routes(object):
+
+    NULL_STRING = 'null'
+
     class _Root(object):
         @cherrypy.expose
         def index(self):
@@ -24,28 +27,28 @@ class Routes(object):
     class _Ajax(object):
         @cherrypy.tools.accept(media='text/plain')
         def GET(self):
-            return "AJAX GET"
+            return NULL_STRING
 
         def POST(self, post=""):
-            return "AJAX POST"
+            return NULL_STRING
 
-        def POST(self, put=""):
-            return "AJAX PUT"
+        def PUT(self, put=""):
+            return NULL_STRING
 
         def DELETE(self):
-            return "AJAX DELETE"
+            return NULL_STRING
 
     @cherrypy.expose
     class _AjaxNameSearch(object):
         @cherrypy.tools.accept(media='text/plain')
         def GET(self):
-            return "test get"
+            return NULL_STRING
 
         def POST(self, post=""):
             return "test 'post'=='" + post + "'"
 
-        def POST(self, put=""):
-            return "test 'put'=='" + put + "'"
+        def PUT(self, put=""):
+            return NULL_STRING
 
         def DELETE(self):
-            return "test delete"
+            return NULL_STRING
