@@ -30,6 +30,7 @@ class TourneyKiosk():
         webapp = Routes._Root()
         webapp.ajax = Routes._Ajax()
         webapp.ajax.namesearch = Routes._AjaxNameSearch()
+        webapp.ajax.playerstats = Routes._AjaxPlayerStats()
         # ----- start server
         conf = {
             '/': {
@@ -45,6 +46,11 @@ class TourneyKiosk():
                 'tools.response_headers.headers': [('Content-Type', 'text/plain')],
             },
             '/ajax/namesearch': {
+                'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
+                'tools.response_headers.on': True,
+                'tools.response_headers.headers': [('Content-Type', 'text/plain')],
+            },
+            '/ajax/playerstats': {
                 'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
                 'tools.response_headers.on': True,
                 'tools.response_headers.headers': [('Content-Type', 'text/plain')],

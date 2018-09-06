@@ -41,3 +41,19 @@ class Routes(object):
 
         def DELETE(self):
             return Routes.NULL_STRING
+
+    @cherrypy.expose
+    class _AjaxPlayerStats(object):
+        @cherrypy.tools.accept(media='text/plain')
+        def GET(self):
+            return Routes.NULL_STRING
+
+        def POST(self, uuid=""):
+            result = cherrypy.engine.publish("braacket-stats", uuid).pop()
+            return json.dumps(result)
+
+        def PUT(self):
+            return Routes.NULL_STRING
+
+        def DELETE(self):
+            return Routes.NULL_STRING
