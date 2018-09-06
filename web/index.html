@@ -1,14 +1,53 @@
 <html>
-	<head>
-	    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js?ver=3.3.1"></script>
-	    <script src="static/main.js"></script>
-	</head>
-	    <body>
-	        <form action="/ajax/namesearch" method="post">
-	            name: <input id="name_search_input" type="text" name="name">
-	        </form>
-	        <div id="log_area" style="width:260px;background-color:#ccc;font-family:monospace">
-	            test
-	        </div>
-	    </body>
-	</html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Patua+One|Roboto" rel="stylesheet">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js?ver=3.3.1"></script>
+        <script src="static/main.js"></script>
+        <link rel="stylesheet" type="text/css" href="static/main.css">
+        <title>Tourney Kiosk</title>
+    </head>
+        <body>
+            <div class="top_box">
+                <h1>Geeks Weekly 60</h1>
+            </div>
+            <div class="split_box">
+                <div class="split_box_col">
+                    <div class="search_wrapper">
+                        <h2>Sign up</h2>
+                        <input class="search" id="name_search_input" type="text">
+                        <div class="search_results search">
+                            <ul id="name_list">
+                                <li>item 1</li>
+                                <li>item 2</li>
+                                <li>item 3</li>
+                                <li>item 4</li>
+                                <li>item 5</li>
+                                <li>item 6</li>
+                                <li>item 7</li>
+                                <li>item 8</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="split_box_col">
+                    <hr>
+                    <h3>Current Participants</h3>
+                    <hr>
+                    <ol class="participant_list">
+                        <li>player 1</li>
+                        <li>Player Two</li>
+                        <li>333 333 33#</li>
+                        <li>the Fourth player | tfffffag</li>
+                        <li>p5</li>
+                        <li>6</li>
+                        <li>Player Sixx (as in the link)</li>
+                    </ol>
+                </div>
+            </div>
+            <!--
+            <div id="log_area" style="width:260px;background-color:#ccc;font-family:monospace">
+                test
+            </div>
+            -->
+        </body>
+    </html>

@@ -1,0 +1,111 @@
+/*
+    --- Google Fonts ---
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Patua One', cursive;
+*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+    color: #444;
+}
+
+hr {
+    width: 100%;
+    max-width: 320px; 
+    padding: 0;
+    background-color: #ccc;
+    border: none;
+    height:0.1em;
+}
+
+.top_box {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+.split_box {
+    display: flex;
+}
+
+.split_box_col {
+    flex: 50%;
+    text-align: center;
+}
+
+.search_wrapper {
+}
+
+.participant_list {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-size: 1.2em;
+}
+
+.search {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    text-align: center;
+    padding: 0.3em;
+    width: 100%;
+    max-width: 300px;
+}
+
+.search_results {
+    margin: 0;
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #e0e0e0;
+}
+
+.search_results ul {
+    margin-top: 0;
+    text-align: center;
+    padding: 0;
+    list-style: none;
+}
+
+.search_results ul li {
+    padding: 0.3em;
+    transition: padding 0.05s, 
+                font-size 0.05s; 
+}
+
+.search_results_hovered {
+    padding: 0.5em;
+    font-size: 1.2em;
+    background-color: #d0d0d0;
+}
+
+h1 {
+    color: #444;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 3em;
+    font-family: 'Patua One', cursive;
+}
+
+h2 {
+    color: #444;
+    margin: 0.5em;
+    padding: 0;
+    font-weight: normal;
+    font-size: 2.5em;
+    font-family: 'Patua One', cursive;
+}
+
+h3 {
+    color: #444;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 2em;
+    font-family: 'Patua One', cursive;
+}
